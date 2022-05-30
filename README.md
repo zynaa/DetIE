@@ -1,6 +1,7 @@
 # DetIE: Multilingual Open Information Extraction Inspired by Object Detection
+This repository is a fork of https://github.com/sberbank-ai/DetIE.
 
-This repository contains the code for the paper 
+The original repository contains the code for the paper 
 'DetIE: Multilingual Open Information Extraction Inspired by Object Detection'
 by Michael Vasilkovsky, Anton Alekseev, Valentin Malykh, Ilya Shenbin, Elena Tutubalina, 
 Dmitriy Salikhov, Mikhail Stepnov, Andrei Chertok and Sergey Nikolenko.
