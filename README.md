@@ -19,6 +19,8 @@ should be put into the corresponding directory:
 2. folder `version_263` (DetIE_IMoJIE) should be copied to: `results/logs/default/version_263`;
 3. files `imojie_train_pattern.json`, `lsoie_test10.json` and `lsoie_train10.json` should be copied to `data/wikidata`.
 
+# Docker Setup
+
 We suggest that you use the provided [Dockerfile](/Dockerfile) to deal with all the dependencies of this project.
 
 E. g. clone this repository, then
@@ -29,6 +31,17 @@ nvidia-docker run  -v ../DetIE:/project -p 8808:8808 -it detie:latest bash
 ```
 
 Once this docker image starts, we're ready for work.
+
+# Local Setup
+### Tested Python version: 3.8 
+Alternatively, you can also develop locally. 
+
+In this case, it is recommended you first create a `venv`.
+
+Then, please install [pytorch](https://pytorch.org/) with the appropriate CUDA version. 
+Versions to be confirmed working are between >1.7.0 and <=1.11.0.
+
+Afterwards, install all requirements using `pip install --upgrade -r context/requirements.txt`.
 
 ## Taking a minute to read the configs
 
