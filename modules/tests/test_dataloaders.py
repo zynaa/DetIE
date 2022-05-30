@@ -66,7 +66,7 @@ def form_batch(texts, extractions):
     indices = []
 
     for text, text_extractions in zip(texts, extractions):
-        indices.append([[find_spans(text, item) for item in extraction] for extraction in text_extractions])
+        indices.append([find_spans(text, extraction) for extraction in text_extractions])
 
     return indices
 
