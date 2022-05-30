@@ -1,3 +1,4 @@
+# @package _global_
 opt:
   name: SGD
   lr: 1e-4

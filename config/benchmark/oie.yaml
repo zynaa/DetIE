@@ -1,3 +1,4 @@
+# @package _global_
 benchmark:
   name: oie
   raw_path: modules/model/evaluation/oie-benchmark-stanovsky/oie_corpus/all.oie
