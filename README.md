@@ -112,7 +112,12 @@ cd modules/model/evaluation/carb-openie6/
 
 
 ## Synthetic data
+### Broken
+The wikipedia triplet download does not seem to work. 
+After only a few requests, we are already getting rate-limited (HTTP 429).
+If required, this code could be run offline on a data dump from Wikipedia?
 
+### Original Instructions
 To generate sentences using Wikidata's triplets, one can run the scripts
 
 ```
