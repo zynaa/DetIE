@@ -90,9 +90,8 @@ Should be 708.6 sentences/sec. on NVIDIA Tesla V100 GPU.
 
 To apply the model to CaRB sentences, run 
 ```
-cd modules/model/evaluation/carb-openie6/
-PYTHONPATH=<repo root> python3 detie_predict.py
-head -5 systems_output/detie243_output.txt
+PYTHONPATH=. python3 modules/model/evaluation/carb-openie6/detie_predict.py
+head -5 modules/model/evaluation/carb-openie6/systems_output/detie243_output.txt
 ```
 
 This will save the predictions into the `modules/model/evaluation/carb-openie6/systems_output/` directory. The same
@@ -101,8 +100,7 @@ should be done with `modules/model/evaluation/carb-openie6/detie_conj_prediction
 To reproduce the DetIE numbers from the Table 3 in the paper, run
 
 ```bash
-cd modules/model/evaluation/carb-openie6/
-./eval.sh
+(cd modules/model/evaluation/carb-openie6/; ./eval.sh)
 ```
 
 * `detie243` is a codename for DetIE_{LSOIE}

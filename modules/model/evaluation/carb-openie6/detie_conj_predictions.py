@@ -1,10 +1,11 @@
 # coding: utf-8
+import os
 from collections import defaultdict
 
 import hydra
 from detie_predict import prepare_detie_ollie_format
 
-from config.hydra_ext import cleanup_hydra
+from config.hydra import cleanup_hydra
 from modules.model import models
 
 
@@ -38,14 +39,13 @@ def main(cfg):
 
     VERSION = 243
     cfg.model.best_version = VERSION
-    cfg.model.best_ckpt_path = "../../../../" + cfg.model.best_ckpt_path
-    cfg.model.best_hparams_path = "../../../../" + cfg.model.best_hparams_path
+    current_dir = os.path.dirname(__file__)
 
     for split in ["test"]:
-        test_set = f"data/carb_sentences.txt"
-        conj_data = f"data/carb_test-openie6.txt.conj"
+        test_set = f"{current_dir}/data/carb_sentences.txt"
+        conj_data = f"{current_dir}/data/carb_test-openie6.txt.conj"
         sentence2reduced, reduced2sentece = get_conj_map(conj_data)
-        save_path = f"systems_output/detie{cfg.model.best_version}conj_output.txt"
+        save_path = f"{current_dir}/systems_output/detie{cfg.model.best_version}conj_output.txt"
 
         try:
             results_data = prepare_detie_ollie_format(conj_data, save_path, cfg, save_file=False)

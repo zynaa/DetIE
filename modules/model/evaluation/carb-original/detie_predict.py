@@ -1,4 +1,6 @@
 # coding: utf-8
+import os
+
 import hydra
 import pandas as pd
 from omegaconf import DictConfig
@@ -88,17 +90,17 @@ def prepare_detie_ollie_format(sentences_raw_file_path, save_file_path, cfg, sav
 # @cleanup_hydra
 @hydra.main("../../../../config", "config.yaml")
 def main(cfg):
-    VERSION = 276
+    VERSION = 243
     cfg.model.best_version = VERSION
-    cfg.model.best_ckpt_path = "../../../../" + cfg.model.best_ckpt_path
-    cfg.model.best_hparams_path = "../../../../" + cfg.model.best_hparams_path
+    current_dir = os.path.dirname(__file__)
 
     for most_common in [True, False]:
         for split in ["test"]:
             # test_set = f"../lsoie-carb_formatted/data/{split}.txt"
             # save_path = f"../lsoie-carb_formatted/system_outputs/{split}/bertie{cfg.model.best_version}mc{most_common}_output.txt"
-            test_set = f"data/{split}.txt"
-            save_path = f"system_outputs/{split}/detie{cfg.model.best_version}_output.txt"
+            test_set = f"{current_dir}/data/gold/{split}.tsv"
+            save_path = f"{current_dir}/systems_output/{split}/detie{cfg.model.best_version}_output" \
+                        f"{'_most_common' if most_common else ''}.txt"
 
             try:
                 prepare_detie_ollie_format(test_set, save_path, cfg, most_common=most_common)

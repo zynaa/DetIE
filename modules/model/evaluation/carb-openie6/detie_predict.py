@@ -7,7 +7,7 @@ import pandas as pd
 from omegaconf import DictConfig
 from tqdm import tqdm
 
-from config.hydra_ext import cleanup_hydra
+from config.hydra import cleanup_hydra
 from modules.model import models
 
 VERSION = None  # global variables are evil; todo
@@ -92,10 +92,7 @@ def main(cfg):
     assert VERSION is not None
 
     cfg.model.best_version = VERSION
-    cfg.model.best_ckpt_path = "../../../../" + cfg.model.best_ckpt_path
-    cfg.model.best_hparams_path = "../../../../" + cfg.model.best_hparams_path
-
-    current_dir = os.getcwd()
+    current_dir = os.path.dirname(__file__)
 
     for split in ["test"]:
         test_set = f"{current_dir}/data/carb_sentences.txt"
