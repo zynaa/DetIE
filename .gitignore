@@ -2,3 +2,6 @@ local*
 .idea
 *.pyc
 *~
+/results/
+/data/
+*.log
