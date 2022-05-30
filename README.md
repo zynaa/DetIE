@@ -109,6 +109,15 @@ To reproduce the DetIE numbers from the Table 3 in the paper, run
 * `detie263conj` is a codename for DetIE_{IMoJIE} + IGL-CA
 
 
+### BenchIE predictions
+
+To reproduce the BenchIE predictions you can run the command below.
+
+```
+PYTHONPATH=. python3 modules/model/evaluation/carb-openie6/detie_benchie_predictions.py
+```
+
+
 ## Synthetic data
 ### Broken
 The wikipedia triplet download does not seem to work. 
