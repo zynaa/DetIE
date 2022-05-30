@@ -297,9 +297,9 @@ class TripletsExtractor(pl.LightningModule):
             matched_labels, matched_preds = map(lambda x: x.cpu().numpy(), (matched_labels, matched_preds))
             for class_name, f1, precision, recall in zip(
                 ("none", "source", "relation", "target"),
-                f1_score(matched_labels, matched_preds, average=None),
-                precision_score(matched_labels, matched_preds, average=None),
-                recall_score(matched_labels, matched_preds, average=None),
+                f1_score(matched_labels, matched_preds, average=None, zero_division=0),
+                precision_score(matched_labels, matched_preds, average=None, zero_division=0),
+                recall_score(matched_labels, matched_preds, average=None, zero_division=0),
             ):
                 # labels_class_mask = matched_labels == class_id
                 # total_predicted_class = (matched_logits == class_id).sum()
